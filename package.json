@@ -1,0 +1,25 @@
+{
+  "name": "couch-cursor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stierma1/couch-cursor.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stierma1/couch-cursor/issues"
+  },
+  "homepage": "https://github.com/stierma1/couch-cursor#readme",
+  "dependencies": {
+    "request": "^2.85.0"
+  },
+  "devDependencies": {
+    "jest": "^22.4.3"
+  }
+}
