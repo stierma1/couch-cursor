@@ -26,14 +26,15 @@ replaces the current document if connection information is present and bumps the
 ### DocumentCursor
 Useful for iterating through a collection of documents, documents are paginated
 
-#### Constructor({int? initialIdx, int? pageSize, int? attachmentPageSize, Object connectionData})
+#### Constructor({int? initialIdx, int? pageSize, int? attachmentPageSize, Object connection_data})
 initialIdx is the starting index of the cursor, defaults to 0
 pageSize is the size of pages of docs fetched from the remote database, defaults to 1
 attachmentPageSize is the size of pages that derived attachment cursors will use, defaults to 1
 connectionData is the connection information the cursor will use to pull documents
 
-#### async this init()
+#### async this init(Object? selector, Object? sort)
 readies the cursor, must be invoked before reading pages, can also reset the cursor
+selector and sort are optional
 
 #### async Document[] getCurrentPage()
 returns the current page of documents, will not bump current index
@@ -56,5 +57,5 @@ returns a new AttachmentCursor for the given document will be hydrated before re
 
 ### ConnectionData
 ```js
-var connectionData = {USERNAME:username, PASSWORD:password, COUCHDB_HOST:host, COUCHDB_NAME:database};
+var connectionData = {USERNAME:username, PASSWORD:password, COUCHDB_HOST:host, COUCHDB_NAME:database, COUCHDB_PROTOCOL:protocol};
 ```
