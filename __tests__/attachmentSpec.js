@@ -10,7 +10,7 @@ test("Attachment constructs", () => {
 
 test("Attachment hydrates", async () => {
   var attachment = new Attachment("testdoc", "testattachment.json", {});
-  await attachment.hydrate("testUser", "testPassword", "test-attachment", "testdb")
+  await attachment.hydrate({USERNAME:"testUser", PASSWORD:"testPassword", COUCHDB_HOST:"test-attachment", COUCHDB_NAME:"testdoc"})
   expect(attachment.data.toString()).toBe("\"abcdefg\"\n");
 });
 

@@ -1,4 +1,5 @@
 # couch-cursor
+Library for fetching paginated data from couchdb
 
 ## Classes
 
@@ -13,16 +14,17 @@ connectionData param is the connection information used if replace is invoked, g
 #### Object getRawDocument()
 returns the internal document
 
-#### async void hydrate(String username, String password, String host, String dbName, String? revOverride)
+#### async void hydrate(Object connectionData, String? revOverride)
 will replace the internal document and update connection information, will pull latest rev by default, revOverride will pull down a specific rev
 
-#### async void upsertTo(String username, String password, String host, String dbName, String id)
+#### async void upsertTo(Object connectionData, String id)
 will upload the internal document to the specified connection and replace the id
 
 #### async void replace()
 replaces the current document if connection information is present and bumps the rev
 
 ### DocumentCursor
+Useful for iterating through a collection of documents, documents are paginated
 
 #### Constructor({int? initialIdx, int? pageSize, int? attachmentPageSize, Object connectionData})
 initialIdx is the starting index of the cursor, defaults to 0
@@ -50,4 +52,9 @@ returns a new AttachmentCursor for the given document will be hydrated before re
 
 ### Attachment
 
-#### AttachmentCursor
+### AttachmentCursor
+
+### ConnectionData
+```js
+var connectionData = {USERNAME:username, PASSWORD:password, COUCHDB_HOST:host, COUCHDB_NAME:database};
+```

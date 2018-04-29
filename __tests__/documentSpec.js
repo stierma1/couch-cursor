@@ -36,7 +36,7 @@ test("Document shallowClone", () => {
 
 test("Document hydrate", async () => {
   var doc = new Document({_id:"hydrate.json"});
-  await doc.hydrate("test1", "test2", "test3", "test");
+  await doc.hydrate({USERNAME:"test1", PASSWORD:"test2", COUCHDB_HOST:"test3", COUCHDB_NAME:"test"});
 
   expect(doc.getRawDocument().hello).toBe("world");
 })
@@ -46,7 +46,7 @@ test("Document upsertTo", async () => {
   request._cbs = [(eve, requestData) => {
     expect(requestData.json._id).toBe("testId");
   }];
-  await doc.upsertTo("testUser", "testPassword", "test.domain", "testdb", "testId")
+  await doc.upsertTo({USERNAME:"testUser", PASSWORD:"testPassword", COUCHDB_HOST:"test.domain", COUCHDB_NAME:"testdb"}, "testId")
   request._cbs = [];
   expect(doc.getRawDocument().hello).toBe("world");
 });

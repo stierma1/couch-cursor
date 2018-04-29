@@ -4,11 +4,11 @@ var DocumentCursor = require("../lib/document-cursor");
 
 test("DocumentCursor constructs", () => {
 
-  var documentCursor = new DocumentCursor({pageSize:2, connectionData:{
-    USERNAME_FROM:"testUser",
-    PASSWORD_FROM:"testPassword",
-    COUCHDB_DB_FROM:"test.domain",
-    COUCHDB_HOST_FROM:"testId"
+  var documentCursor = new DocumentCursor({pageSize:2, connection_data:{
+    USERNAME:"testUser",
+    PASSWORD:"testPassword",
+    COUCHDB_HOST:"test.domain",
+    COUCHDB_NAME:"testId"
   }});
 
   expect(documentCursor.pageSize).toBe(2);
@@ -16,11 +16,11 @@ test("DocumentCursor constructs", () => {
 
 test("DocumentCursor inits", async () => {
 
-  var documentCursor = new DocumentCursor({pageSize:2, connectionData:{
-    USERNAME_FROM:"testUser",
-    PASSWORD_FROM:"testPassword",
-    COUCHDB_DB_FROM:"test.domain",
-    COUCHDB_HOST_FROM:"testId"
+  var documentCursor = new DocumentCursor({pageSize:2, connection_data:{
+    USERNAME:"testUser",
+    PASSWORD:"testPassword",
+    COUCHDB_HOST:"test.domain",
+    COUCHDB_NAME:"testId"
   }});
 
   await documentCursor.init()
@@ -30,11 +30,11 @@ test("DocumentCursor inits", async () => {
 
 test("DocumentCursor getCurrentPageOfDocs", async () => {
 
-  var documentCursor = new DocumentCursor({pageSize:2, connectionData:{
-    USERNAME_FROM:"testUser",
-    PASSWORD_FROM:"testPassword",
-    COUCHDB_DB_FROM:"test.domain",
-    COUCHDB_HOST_FROM:"testId"
+  var documentCursor = new DocumentCursor({pageSize:2, connection_data:{
+    USERNAME:"testUser",
+    PASSWORD:"testPassword",
+    COUCHDB_HOST:"test.domain",
+    COUCHDB_NAME:"testId"
   }});
 
   await documentCursor.init()
@@ -46,11 +46,11 @@ test("DocumentCursor getCurrentPageOfDocs", async () => {
 
 test("DocumentCursor nextPage", async () => {
 
-  var documentCursor = new DocumentCursor({pageSize:2, connectionData:{
-    USERNAME_FROM:"testUser",
-    PASSWORD_FROM:"testPassword",
-    COUCHDB_DB_FROM:"test.domain",
-    COUCHDB_HOST_FROM:"testId"
+  var documentCursor = new DocumentCursor({pageSize:2, connection_data:{
+    USERNAME:"testUser",
+    PASSWORD:"testPassword",
+    COUCHDB_HOST:"test.domain",
+    COUCHDB_NAME:"testId"
   }});
 
   await documentCursor.init()
@@ -68,11 +68,11 @@ test("DocumentCursor nextPage", async () => {
 
 test("DocumentCursor nextFilteredPage", async () => {
 
-  var documentCursor = new DocumentCursor({pageSize:2, connectionData:{
-    USERNAME_FROM:"testUser",
-    PASSWORD_FROM:"testPassword",
-    COUCHDB_DB_FROM:"test.domain",
-    COUCHDB_HOST_FROM:"testId"
+  var documentCursor = new DocumentCursor({pageSize:2, connection_data:{
+    USERNAME:"testUser",
+    PASSWORD:"testPassword",
+    COUCHDB_HOST:"test.domain",
+    COUCHDB_NAME:"testId"
   }});
 
   await documentCursor.init()
@@ -87,11 +87,11 @@ test("DocumentCursor nextFilteredPage", async () => {
 
 test("DocumentCursor getAttachmentCursor", async () => {
 
-  var documentCursor = new DocumentCursor({pageSize:2, connectionData:{
-    USERNAME_FROM:"testUser",
-    PASSWORD_FROM:"testPassword",
-    COUCHDB_DB_FROM:"test.domain-attachment",
-    COUCHDB_HOST_FROM:"testId"
+  var documentCursor = new DocumentCursor({pageSize:2, connection_data:{
+    USERNAME:"testUser",
+    PASSWORD:"testPassword",
+    COUCHDB_HOST:"test.domain-attachment",
+    COUCHDB_NAME:"testId"
   }});
 
   await documentCursor.init()
